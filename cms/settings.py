@@ -21,10 +21,11 @@ SECRET_KEY = 'o83!zfm=l^lgpnm8rmgce-w6aahf*h$tn@y8)wvy7q##uh5mim'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'icms.changeju.com']
 
 
 # Application definition
@@ -75,7 +76,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-cn'
 
 TIME_ZONE = 'UTC'
 
@@ -90,3 +91,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#STATIC_ROOT = 'static/'
+# STATIC_ROOT = '/tmp/cms/'
