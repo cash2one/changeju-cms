@@ -3,7 +3,7 @@
 # @Author: Hollay.Yan
 # @Date:   2014-07-20 16:13:45
 # @Last Modified by:   Hollay.Yan
-# @Last Modified time: 2014-07-20 20:07:41
+# @Last Modified time: 2014-07-21 00:34:23
 
 import urllib2
 import urllib
@@ -136,7 +136,7 @@ def one(url):
 
 
 def run():
-    with open('urls_area.txt', 'r') as fp:
+    with open('/usr/local/etc/cms/urls_area.txt', 'r') as fp:
         lines = fp.readlines()
         urls = [line.strip() for line in lines]
 
