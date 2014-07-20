@@ -69,7 +69,7 @@ def insert_db(data):
     '''
     (title, url, homelink_id, rent, house_type, building_year, pub_date, off_date, area, community_name, status)
     '''
-    SQL = 'INSERT INTO datasource_homelink_house (title, url, homelink_id, rent, house_type, building_year, pub_date, off_date, area, community_name) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+    SQL = 'INSERT INTO ds_homelink_house (title, url, homelink_id, rent, house_type, building_year, pub_date, off_date, area, community_name) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
     try:
         conn = db_pool.connection()
         cur = conn.cursor()
@@ -86,9 +86,9 @@ def insert_db(data):
 
 def update_db(row):
     '''
-    INSERT INTO datasource_homelink_house (title, url, homelink_id, rent, house_type, building_year, pub_date, off_date, area, community_name) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    INSERT INTO ds_homelink_house (title, url, homelink_id, rent, house_type, building_year, pub_date, off_date, area, community_name) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     '''
-    SQL = '''INSERT INTO datasource_homelink_house (title, url, homelink_id, rent, house_type, building_year, pub_date, off_date, area, community_name) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    SQL = '''INSERT INTO ds_homelink_house (title, url, homelink_id, rent, house_type, building_year, pub_date, off_date, area, community_name) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     ON DUPLICATE KEY UPDATE off_date=CURDATE(), last_update=NOW()'''
 
     try:
