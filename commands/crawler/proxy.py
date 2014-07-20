@@ -17,7 +17,7 @@ class ProxyFactory():
     proxy_str = ''
     config = None
 
-    def __init__(self, init='proxy.ini'):
+    def __init__(self, init='/usr/local/etc/proxy.ini'):
         self.ini = init
         self.reload()
 
