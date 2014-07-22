@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="http://static.changeju.com/resources/themes/default/styles/reset_b877ded4.css">
+        <script src="http://static.changeju.com/libs/jquery/jquery-1.11.0.min.js"></script>
+        <script src="http://api.map.baidu.com/api?v=1.5&ak=sEuGA0B3pDZMCVD2pwj6XOFs" type="text/javascript"></script>
+        <script src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+        <script src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+    </head>
+    <body>
+    <style>
+    #wrapper {
+    	width: 100%;
+    	height: 100%;
+    	overflow: hidden;
+    }
+    #fixed {
+    	width: 300px;
+    	height: 100px;
+    	position: fixed;
+    	right: 50px;
+    	top: 50px;
+    	background: #FFF;
+    	z-index: 200000;
+    }
+    </style>
+    <div id="wrapper"></div>
+    <div id="fixed">
+    	<input type="text" id="grid" value="20">
+    	<button id="gridChange">提交</button>
+    </div>
+    <script>
+    var map = new BMap.Map('wrapper', {
+		minZoom: 12,
+		maxZoom: 18
+	});
+
+	map.centerAndZoom('北京', 12);
+	map.enableScrollWheelZoom(true);
+	map.addControl(new BMap.NavigationControl());
+	map.addControl(new BMap.ScaleControl());
+
+	$.ajax({
+		url: '/ds/list',
+		dataType: 'json',
+		success: generate
+	});
+
+	var markerCluster;
+
+	function generate(data) {
+		var markers = [],
+			pt, item, len = data.length;
+		for(var i = 0; i < len; i++) {
+			item = data[i];
+			pt = new BMap.Point(item.fields.lng, item.fields.lat);
+    		markers.push(new BMap.Marker(pt));
+		}
+
+		markerCluster = new BMapLib.MarkerClusterer(map, {
+		    markers: markers
+		});
+	}
+
+	$('#gridChange').click(function(){
+		markerCluster.setGridSize($('#grid').val());
+	});
+    </script>
+    </body>
+</html>

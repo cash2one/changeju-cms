@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'property',
     'manual',
+    'ds',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -65,10 +66,10 @@ DATABASES = {
     # },
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
+        'HOST': '10.0.100.1',
         'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'USER': 'remote',
+        'PASSWORD': 'remote',
         'NAME': 'cj_cms',
     }
 }
@@ -94,3 +95,5 @@ STATIC_URL = '/static/'
 
 #STATIC_ROOT = 'static/'
 STATIC_ROOT = '/var/www/static/'
+
+TEMPLATE_DIRS = 'templates/'
