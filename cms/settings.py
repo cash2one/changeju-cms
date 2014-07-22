@@ -25,7 +25,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'icms.changeju.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'icms.changeju.com', '10.0.100.1']
 
 
 # Application definition
