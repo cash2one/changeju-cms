@@ -3,7 +3,7 @@
 # @Author: hollay
 # @Date:   2014-07-24 12:47:17
 # @Last Modified by:   hollay
-# @Last Modified time: 2014-07-24 13:53:04
+# @Last Modified time: 2014-07-24 15:02:18
 
 from django.db import models
 
@@ -23,6 +23,9 @@ class Ziroom_House(models.Model):
     last_update = models.DateField(auto_now=True, auto_now_add=True, verbose_name=u'最后更新时间')
     count = models.IntegerField(default=1)
 
+    class Meta:
+        verbose_name = u'自如友家房源信息'
+        verbose_name_plural = u'自如友家房源信息'
 
 class Homelink_House(models.Model):
     title = models.CharField(max_length=200, verbose_name=u'标题')
@@ -37,3 +40,7 @@ class Homelink_House(models.Model):
     community_name = models.CharField(max_length=45, verbose_name=u'小区名称')
     last_update = models.DateField(auto_now=True, auto_now_add=True, verbose_name=u'最后更新')
     status = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = u'链家房源信息'
+        verbose_name_plural = u'链家房源信息'
