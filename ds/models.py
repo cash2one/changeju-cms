@@ -17,6 +17,21 @@ class Ziroom_House(models.Model):
     last_update = models.DateField(auto_now=True, auto_now_add=True)
     count = models.IntegerField(default=1)
 
+
+class Homelink_House(models.Model):
+    title = models.CharField(max_length=200)
+    url = models.CharField(max_length=50)
+    homelink_id = models.CharField(max_length=45)
+    rent = models.IntegerField()
+    house_type = models.CharField(max_length=10)
+    building_year = models.CharField(max_length=10)
+    pub_date = models.DateField(auto_now=True)
+    off_date = models.DateField(auto_now=True)
+    area = models.IntegerField()
+    community_name = models.CharField(max_length=45)
+    last_update = models.DateField(auto_now=True, auto_now_add=True)
+    status = models.IntegerField(default=0)
+
 # class Company(models.Model):
 #     name = models.CharField(max_length=80, verbose_name='公司名称')
 #     area = models.CharField(max_length=15, blank=True, verbose_name='区县')
