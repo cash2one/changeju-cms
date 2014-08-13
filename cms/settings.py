@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'property',
     'manual',
+    'demo',
     'ds',
 )
 
@@ -66,10 +67,14 @@ DATABASES = {
     # },
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '10.0.100.1',
         'PORT': '3306',
-        'USER': 'remote',
-        'PASSWORD': 'remote',
+        # 'HOST': '10.0.100.1',
+        # 'USER': 'remote',
+        # 'PASSWORD': 'remote',
+        'HOST': '127.0.0.1',
+        'USER': 'root',
+        'PASSWORD': 'root',
+
         'NAME': 'cj_cms',
     }
 }
