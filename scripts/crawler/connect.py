@@ -33,7 +33,7 @@ class ConnectFactory():
 if __name__ == '__main__':
     cf = ConnectFactory()
     for i in range(10):
-        opener = cf.get_opener(use_proxy=True)
+        opener = cf.get_opener(use_proxy=False)
 
         req = urllib2.Request('http://www.baidu.com/')
         req.add_header('User-Agent', UA)

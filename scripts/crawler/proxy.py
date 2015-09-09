@@ -17,7 +17,7 @@ class ProxyFactory():
     proxy_str = ''
     config = None
 
-    def __init__(self, init='/usr/local/etc/cms/proxy.ini'):
+    def __init__(self, init='./proxy.ini'):
         self.ini = init
         self.reload()
 
@@ -50,6 +50,16 @@ class ProxyFactory():
         self.config.write(open(self.ini, 'w'))
         print 'proxy updated... Reloading proxies'
         self.reload()
+
+    def update_proxy_local(self):
+        with open('./origin.txt') as fp:
+            lines = fp.readlines()
+            proxy = []
+            for line in lines:
+                proxy.append(line.strip())
+
+            self.config.set('cn-proxy', 'list', '|'.join(proxy))
+            self.config.write(open(self.ini, 'w'))
 
     def random(self):
         return random.choice(self.proxies)
@@ -96,6 +106,8 @@ if __name__ == '__main__':
     import socket
     socket.setdefaulttimeout(3)
     factory = ProxyFactory()
-    factory.update_proxy()
-    factory.test_all('http://www.ziroom.com/z/nl/')
+    # factory.update_proxy()
+    # factory.update_proxy_local()
+    print factory.size()
+    factory.test_all('http://www.baidu.com/')
     print factory.size()
